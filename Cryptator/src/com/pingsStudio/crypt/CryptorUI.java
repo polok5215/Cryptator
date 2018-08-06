@@ -17,7 +17,7 @@ import javax.swing.border.TitledBorder;
 import org.springframework.security.crypto.keygen.KeyGenerators;
 
 public class CryptorUI {
-	private JFrame frmCryptorgator;
+	private JFrame frmCryptator;
 	private JTextField txtRaw;
 	private JTextField txtSalt;
 
@@ -29,7 +29,7 @@ public class CryptorUI {
 			public void run() {
 				try {
 					CryptorUI window = new CryptorUI();
-					window.frmCryptorgator.setVisible(true);
+					window.frmCryptator.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -48,17 +48,17 @@ public class CryptorUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmCryptorgator = new JFrame();
-		frmCryptorgator.setTitle("Cryptorgator");
-		frmCryptorgator.setResizable(false);
-		frmCryptorgator.setBounds(100, 100, 480, 310);
-		frmCryptorgator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmCryptorgator.getContentPane().setLayout(null);
+		frmCryptator = new JFrame();
+		frmCryptator.setTitle("Cryptator");
+		frmCryptator.setResizable(false);
+		frmCryptator.setBounds(100, 100, 480, 310);
+		frmCryptator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCryptator.getContentPane().setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(null, "Raw Text", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_1.setBounds(4, 12, 466, 43);
-		frmCryptorgator.getContentPane().add(panel_1);
+		frmCryptator.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
 		txtRaw = new JTextField();
@@ -69,7 +69,7 @@ public class CryptorUI {
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "Hashed", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel.setBounds(4, 204, 466, 66);
-		frmCryptorgator.getContentPane().add(panel);
+		frmCryptator.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JTextArea txtHash = new JTextArea();
@@ -80,7 +80,7 @@ public class CryptorUI {
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new TitledBorder(null, "BCrypt", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_3.setBounds(4, 55, 195, 124);
-		frmCryptorgator.getContentPane().add(panel_3);
+		frmCryptator.getContentPane().add(panel_3);
 		panel_3.setLayout(null);
 		
 		JButton btnRawToBcrypt = new JButton("Encode");
@@ -94,7 +94,7 @@ public class CryptorUI {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new TitledBorder(null, "SHA1", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_2.setBounds(201, 55, 269, 124);
-		frmCryptorgator.getContentPane().add(panel_2);
+		frmCryptator.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 		
 		JButton btnRawToSha = new JButton("Encode");
@@ -127,7 +127,7 @@ public class CryptorUI {
 		JLabel lblInfo = new JLabel("");
 		lblInfo.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInfo.setBounds(4, 179, 450, 14);
-		frmCryptorgator.getContentPane().add(lblInfo);
+		frmCryptator.getContentPane().add(lblInfo);
 		
 		//Logic here...
 		btnSalty.addActionListener(new ActionListener() {
