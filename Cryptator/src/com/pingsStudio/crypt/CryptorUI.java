@@ -4,11 +4,16 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -197,5 +202,26 @@ public class CryptorUI {
 				}
 			}
 		});
+		
+		final JPopupMenu contextMenu = new JPopupMenu("cxMenu");
+		JMenuItem ctxAbout = new JMenuItem("About");
+		ctxAbout.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(frmCryptator,"Ver 1.0.180828\n-= by KL =-","About",JOptionPane.PLAIN_MESSAGE);
+			}
+		});
+		contextMenu.add(ctxAbout);
+		frmCryptator.add(contextMenu);
+		
+		frmCryptator.addMouseListener(new MouseAdapter() {
+			@Override
+		     public void mouseClicked(MouseEvent e) {
+		        if(e.getButton()==MouseEvent.BUTTON3) {//When is right-click
+		        	contextMenu.show(frmCryptator , e.getX(), e.getY());  
+		        }
+		     }
+		});
+		
 	}
 }
