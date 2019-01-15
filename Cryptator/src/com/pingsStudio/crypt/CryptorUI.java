@@ -2,11 +2,14 @@ package com.pingsStudio.crypt;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.net.URL;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -53,12 +56,17 @@ public class CryptorUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		URL iconURL = getClass().getResource("/com/pingsStudio/res/lock-128.png");
+		ImageIcon icon = new ImageIcon(iconURL);
+		
 		frmCryptator = new JFrame();
-		frmCryptator.setTitle("Cryptator");
+		frmCryptator.setTitle("Cryptorgator");
 		frmCryptator.setResizable(false);
 		frmCryptator.setBounds(100, 100, 480, 310);
 		frmCryptator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCryptator.getContentPane().setLayout(null);
+		
+		frmCryptator.setIconImage(icon.getImage());
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(null, "Raw Text", TitledBorder.LEADING, TitledBorder.TOP, null, null));
