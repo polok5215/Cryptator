@@ -216,7 +216,7 @@ public class CryptorUI {
 		ctxAbout.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(frmCryptator,"Ver 1.0.180828\n-= by KL =-","About",JOptionPane.PLAIN_MESSAGE);
+				JOptionPane.showMessageDialog(frmCryptator,"Ver 1.0.190214\n-= by KL =-","About Cryptorgator",JOptionPane.PLAIN_MESSAGE,icon);
 			}
 		});
 		contextMenu.add(ctxAbout);
