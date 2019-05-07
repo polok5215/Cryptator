@@ -2,7 +2,6 @@ package com.pingsStudio.crypt;
 
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -13,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -62,7 +62,7 @@ public class CryptorUI {
 		frmCryptator = new JFrame();
 		frmCryptator.setTitle("Cryptorgator");
 		frmCryptator.setResizable(false);
-		frmCryptator.setBounds(100, 100, 480, 310);
+		frmCryptator.setBounds(100, 100, 490, 340);
 		frmCryptator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCryptator.getContentPane().setLayout(null);
 		
@@ -220,7 +220,26 @@ public class CryptorUI {
 			}
 		});
 		contextMenu.add(ctxAbout);
-		frmCryptator.add(contextMenu);
+		frmCryptator.getContentPane().add(contextMenu);
+		
+		JMenuBar menuBar = new JMenuBar();
+		frmCryptator.setJMenuBar(menuBar);
+		
+		JButton btnCryptType = new JButton("SCS En/DeCoder");
+		boolean isSCSOn=false;
+		btnCryptType.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(isSCSOn) {
+					//ignore
+				}else {
+					//show popup
+					SCSCoder scscoderFrm = new SCSCoder();
+					scscoderFrm.setVisible(true);
+					scscoderFrm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				}
+			}
+		});
+		menuBar.add(btnCryptType);
 		
 		frmCryptator.addMouseListener(new MouseAdapter() {
 			@Override
