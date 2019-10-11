@@ -3,7 +3,9 @@ package com.pingsStudio.crypt;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -49,6 +51,10 @@ public class SCSCoder extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		URL iconURL = getClass().getResource("/com/pingsStudio/res/lock-128.png");
+		ImageIcon icon = new ImageIcon(iconURL);
+		this.setIconImage(icon.getImage());
 		
 		JTextPane textPaneUp = new JTextPane();
 		textPaneUp.setToolTipText("Seperate by newline or comma. will auto trim lead and tail space/empty char!");

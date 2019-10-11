@@ -1,9 +1,12 @@
 package com.pingsStudio.crypt;
 
+import java.util.regex.Pattern;
+
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class Cryptor {
+	private static Pattern BCRYPT_PATTERN = Pattern.compile("\\A\\$2a?\\$\\d\\d\\$[./0-9A-Za-z]{53}");
 
 	public static void main(String[] args) {
 		String rawPass="Password123";
@@ -21,7 +24,9 @@ public class Cryptor {
 		String checkSHASalt="saltyKing88";
 		System.out.println("SHA1 Password Valid ["+checkSHAPass(checkRawPass,checkEncSHA,checkSHASalt)+"]");
 		
-		String checkEncBCRYPT="$2a$10$B6aHm.24pcJW90Y6jrZj..l4GWfOznKC/GzVp4ZlIHMyc6QVg/9jC";
+		//String checkEncBCRYPT="$2a$10$B6aHm.24pcJW90Y6jrZj..l4GWfOznKC/GzVp4ZlIHMyc6QVg/9jC";
+		String checkEncBCRYPT="$2a$10$.EzSGIIi7wYO8FXkohCLQuJ4GNLC3r9Xejt69.r/stB0SoEwYv356";
+		System.out.println("BCryptPatternValid:"+BCRYPT_PATTERN.matcher(checkEncBCRYPT).matches());
 		System.out.println("BCrypt Password Valid ["+checkBCryptPass(checkRawPass,checkEncBCRYPT)+"]");
 		
 	}
